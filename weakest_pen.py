@@ -11,13 +11,17 @@ today = time.strftime('%d.%m.%Y')
 #Empty string for storing today's birthdays
 todays_birthdays = ''
 
-#For loop checkings dates against today's date
+#For loop checkings dates against today's date and appending the related name to a string
+#Seems to be a bug such that it will only append at most a single name
 for day, name in birthdays.items():
-    if todays_birthdays == "":
-        if day == today:
-            todays_birthdays += name
-    else:
-        if day == today:
-            todays_birthdays += ", " + name
+    if day == today:
+        if todays_birthdays == '':
+            todays_birthdays = name
+        else:
+            todays_birthdays = todays_birthdays + ", " + name
 
-print(todays_birthdays)
+#Checks to make sure at least one person has a birthday today
+if todays_birthdays == '':
+    print('No birthdays today')
+else:
+    print(todays_birthdays)
