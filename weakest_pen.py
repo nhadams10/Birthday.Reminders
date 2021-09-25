@@ -9,26 +9,29 @@ from birthday_book import *
 today = time.strftime('%d.%m')
 year = time.strftime('%Y') 
 
-#Empty dictionary for storing today's birthdays
-todays_birthdays = {}
+#Empty list for storing today's birthdays
+todays_birthdays = []
 
-
-#CHANGE to be a function returning a dictionary of today's birthdays
-#For loop checkings dates against today's date and appending the related name to a string
-for birthday, name in birthdays.items():
+#For loop checkings birthdays against today's date and appending the [birthday, name] to todays_birthdays
+for birthday, name in birthdays:
     if today in birthday:
-        todays_birthdays.update({birthday: name})
+        todays_birthdays.append([birthday, name])
 
-#Old code for adding in ", "
+#WRITE a for loop calculating age
+#for birthday, name in todays_birthdays
+
+
+#WRITE something to format output
+
+
+#Old code for formatting output ", "
         # if todays_birthdays == '':
         #     todays_birthdays = name
         # else:
         #     todays_birthdays = todays_birthdays + ", " + name
 
-
-
 #Checks to make sure at least one person has a birthday today
-if todays_birthdays == {}:
+if todays_birthdays == []:
     print('No birthdays today')
 else:
     print(todays_birthdays)
