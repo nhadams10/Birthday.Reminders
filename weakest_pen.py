@@ -6,15 +6,15 @@ from datetime import datetime
 from birthday_book import *
 
 #Eventually need to revise to account for time zones
-today = time.strftime('%d.%m.%Y')
+today = time.strftime('%d.%m')
+year = time.strftime('%Y') 
 
 #Empty string for storing today's birthdays
 todays_birthdays = ''
 
 #For loop checkings dates against today's date and appending the related name to a string
-#Need to edit to check only the DD.MM not the YY
-for day, name in birthdays.items():
-    if day == today:
+for birthday, name in birthdays.items():
+    if today in birthday:
         if todays_birthdays == '':
             todays_birthdays = name
         else:
