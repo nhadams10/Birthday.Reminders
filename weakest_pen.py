@@ -15,23 +15,22 @@ todays_birthdays = []
 #For loop checkings birthdays against today's date and appending the [birthday, name] to todays_birthdays
 for birthday, name in birthdays:
     if today in birthday:
-        todays_birthdays.append([birthday, name])
+        age = int(year) - int(birthday[-4:])
+        todays_birthdays.append([age, name])
 
-#WRITE a for loop calculating age
-#for birthday, name in todays_birthdays
+#This converts output from a nest list to a user-friendly view
+def print_birthdays(list):
+    print("---------------------")
+    #Checks to make sure at least one person has a birthday today
+    if todays_birthdays == []:
+        print('No birthdays today.')
+    #Formats list of birthdays
+    else:
+        print("Today's Birthdays:")
+        print("")
+        for birthday, name in list:
+            print("{} turns {}".format(name, birthday))
+    print("---------------------")
 
-
-#WRITE something to format output
-
-
-#Old code for formatting output ", "
-        # if todays_birthdays == '':
-        #     todays_birthdays = name
-        # else:
-        #     todays_birthdays = todays_birthdays + ", " + name
-
-#Checks to make sure at least one person has a birthday today
-if todays_birthdays == []:
-    print('No birthdays today')
-else:
-    print(todays_birthdays)
+#Prints birthdays to the terminal
+print_birthdays(todays_birthdays)
