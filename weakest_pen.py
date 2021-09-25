@@ -12,7 +12,7 @@ today = time.strftime('%d.%m.%Y')
 todays_birthdays = ''
 
 #For loop checkings dates against today's date and appending the related name to a string
-#Seems to be a bug such that it will only append at most a single name
+#Need to edit to check only the DD.MM not the YY
 for day, name in birthdays.items():
     if day == today:
         if todays_birthdays == '':
